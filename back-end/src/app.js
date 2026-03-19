@@ -22,4 +22,9 @@ app.use('/customers', customersRoute)
 /*quando o endereço pedir '/customers' a requisição vai para o
 customersRoute e vai executar o que está nesse arquivo*/
 
+import carsRoute from './routes/cars.js'
+app.use('/cars', carsRoute)
+/*quando o endereço pedir '/cars' a requisição vai para o
+carsRoute e vai executar o que está nesse arquivo*/
+
 export default app
