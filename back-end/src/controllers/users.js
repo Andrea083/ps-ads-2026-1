@@ -15,7 +15,7 @@ controller.create = async function (req, res) {
 
     // 'async' e 'await' são usados para que a função aguarde a execução 
     // do método antes de prosseguir para a próxima linha de código
-    await prisma.customers.create({ data: req.body })
+    await prisma.user.create({ data: req.body })
 
     // Se tudo der certo, enviamos o código HTTP
     // apropriado, no caso HTTP 201: created
@@ -33,8 +33,8 @@ controller.create = async function (req, res) {
 controller.retrieveAll = async function (req, res) {
   try {
     // Recupera todos os registros de clientes, ordenados pelo campo "name", ascendente
-    const result = await prisma.customers.findMany({
-      orderBy: [{ name: 'asc' }]
+    const result = await prisma.user.findMany({
+      orderBy: [ { fullname: 'asc'} ]
     })
 
 
@@ -57,7 +57,7 @@ controller.retrieveAll = async function (req, res) {
 controller.retrieveOne = async function (req, res) {
   try {
     // Busca no banco de dados apenas o registro indicado pelo parâmetro "id"
-    const result = await prisma.customers.findUnique({
+    const result = await prisma.user.findUnique({
       where: { id: Number(req.params.id) }
     })
 
@@ -81,7 +81,7 @@ controller.update = async function (req, res) {
     // Busca o registro no banco de dados por seu id
     // e o atualiza com as informações que vieram em
     // req.body
-    await prisma.customers.update({
+    await prisma.user.update({
       where: { id: Number(req.params.id) },
       data: req.body
     })
@@ -112,7 +112,7 @@ controller.update = async function (req, res) {
 
 controller.delete = async function (req, res) {
   try {
-    await prisma.customers.delete({
+    await prisma.user.delete({
       where: { id: Number(req.params.id) }
     })
 
