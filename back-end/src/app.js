@@ -36,4 +36,7 @@ carsRoute e vai executar o que está nesse arquivo*/
 import usersRoute from './routes/users.js'
 app.use('/users', usersRoute)
 
+import sellersRoute from './routes/sellers.js'
+app.use('/sellers', sellersRoute)
+
 export default app
