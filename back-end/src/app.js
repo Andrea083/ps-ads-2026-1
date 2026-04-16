@@ -33,6 +33,13 @@ app.use('/cars', carsRoute)
 /*quando o endereço pedir '/cars' a requisição vai para o
 carsRoute e vai executar o que está nesse arquivo*/
 
+/******* MIDDLEWARE DE AUTENTICAÇÃO *******/
+
+import authMiddleware from './middleware/auth.js'
+app.use(authMiddleware)
+
+/**************** ROTAS *******************/
+
 import usersRoute from './routes/users.js'
 app.use('/users', usersRoute)
 
